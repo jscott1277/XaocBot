@@ -120,6 +120,9 @@ class HandlerXIVDB
 
     getQuest(string, callback)
     {
+        let response = [];
+        string = string.toLowerCase();
+
         response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_NONE', [
             string,
         ]));
