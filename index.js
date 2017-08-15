@@ -1,3 +1,7 @@
+var appInsights = require('applicationinsights');
+appInsights.setup(process.env.APPSETTING_AppInsightKey).start();
+
+
 require('app-module-path').addPath('./src/');
 const vsprintf = require('sprintf-js').vsprintf;
 const config = require('./src/app/config.js');
