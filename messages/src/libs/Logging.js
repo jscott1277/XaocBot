@@ -1,5 +1,5 @@
 var moment = require('moment'),
-    functions = require('libs/Functions');
+    functions = require('./Functions');
 
 class Logging
 {

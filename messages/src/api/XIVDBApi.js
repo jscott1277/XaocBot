@@ -1,7 +1,7 @@
 const vsprintf = require("sprintf-js").vsprintf;
 const query = require('query-string');
 const https = require('https');
-const Log = require('libs/Logging');
+const Log = require('../libs/Logging');
 
 // Endpoint
 const API_ENDPOINT = 'api.xivdb.com';

@@ -1,6 +1,6 @@
-const Log = require('libs/Logging');
-const XIVDBApi = require('api/XIVDBApi');
-const Language = require('language/Language');
+const Log = require('./libs/Logging');
+const XIVDBApi = require('./api/XIVDBApi');
+const Language = require('./language/Language');
 
 /**
  * Handle XIVDB Commands

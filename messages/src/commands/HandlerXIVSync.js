@@ -1,7 +1,7 @@
 const vsprintf = require("sprintf-js").vsprintf;
-const Log = require('libs/Logging');
-const XIVSyncApi = require('api/XIVSyncApi');
-const Language = require('language/Language');
+const Log = require('./libs/Logging');
+const XIVSyncApi = require('./api/XIVSyncApi');
+const Language = require('./language/Language');
 
 /**
  * Handle XIVSync Commands
