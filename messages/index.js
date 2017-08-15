@@ -1,6 +1,6 @@
 require('app-module-path').addPath('./src/');
 const vsprintf = require('sprintf-js').vsprintf;
-const config = require('src/app/config.js');
+const config = require('./src/app/config.js');
 
 // import the discord.js module
 const Discord = require('discord.js');
