@@ -111,11 +111,11 @@ class Handler
                         return HandlerXIVDB.getItem(text.slice(3).join(' '), response => {
                             this.respond(message, response);
                         });
-                    case Commands.COMMAND_XIVDB_GET_QUEST:
-                        return HandlerXIVDB.getQuest(text.slice(3).join(' '), response => {
-                            this.respond(message, response);
-                        });
                 }
+            case Commands.COMMAND_XIVDB_GET_QUEST:
+                return HandlerXIVDB.getQuest(text.slice(3).join(' '), response => {
+                    this.respond(message, response);
+                });
 
                 // general search
                 return HandlerXIVDB.search(text.slice(2).join(' '), response => {
