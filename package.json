@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "app-module-path": "^2.1.0",
+    "discord.js": "^10.0.1",
+    "moment": "^2.17.1",
+    "query-string": "^4.2.3",
+    "sprintf-js": "^1.0.3"
+  }
+}
