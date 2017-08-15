@@ -34,4 +34,4 @@ bot.on('message', message => {
 
 // login our bot
 Log.echo('Logging in ...');
-bot.login(process.env.DiscordToken);
+bot.login(process.env.APPSETTING_DiscordToken);
