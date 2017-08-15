@@ -7,8 +7,8 @@ const Discord = require('discord.js');
 const bot = new Discord.Client();
 
 // import custom code
-const Commands = require('commands/Handler');
-const Log = require('libs/Logging');
+const Commands = require('./src/commands/Handler');
+const Log = require('./src/libs/Logging');
 
 Log.echo('Starting ...');
 bot.on('ready', () => {
