@@ -1,31 +1,37 @@
-"use strict";
-var builder = require("botbuilder");
-var botbuilder_azure = require("botbuilder-azure");
-var path = require('path');
+require('app-module-path').addPath('.././src/');
+const vsprintf = require('sprintf-js').vsprintf;
+const config = require('../src/app/config.js');
 
-var useEmulator = (process.env.NODE_ENV == 'development');
+// import the discord.js module
+const Discord = require('discord.js');
+const bot = new Discord.Client();
 
-var connector = useEmulator ? new builder.ChatConnector() : new botbuilder_azure.BotServiceConnector({
-    appId: process.env['MicrosoftAppId'],
-    appPassword: process.env['MicrosoftAppPassword'],
-    stateEndpoint: process.env['BotStateEndpoint'],
-    openIdMetadata: process.env['BotOpenIdMetadata']
+// import custom code
+const Commands = require('commands/Handler');
+const Log = require('libs/Logging');
+
+Log.echo('Starting ...');
+bot.on('ready', () => {
+    Log.echo('I am ready!');
+    Log.line();
 });
 
-var bot = new builder.UniversalBot(connector);
-bot.localePath(path.join(__dirname, './locale'));
+// create an event listener for messages
+bot.on('message', message => {
+    Commands.read(message, response => {
+        Log.echo("{username:red}: {message}", {
+            username: message.author.username,
+            message: message.content,
+        });
 
-bot.dialog('/', function (session) {
-    session.send('You said ' + session.message.text);
-});
+        Log.echo(">> {response:green}", {
+            response: response,
+        });
 
-if (useEmulator) {
-    var restify = require('restify');
-    var server = restify.createServer();
-    server.listen(3978, function() {
-        console.log('test bot endpont at http://localhost:3978/api/messages');
+        message.reply('\n' + response);
     });
-    server.post('/api/messages', connector.listen());    
-} else {
-    module.exports = { default: connector.listen() }
-}
+});
+
+// login our bot
+Log.echo('Logging in ...');
+bot.login(config.botToken);
