@@ -1,18 +1,9 @@
 {
-  "name": "emptybot",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "dependencies": {
-    "botbuilder": "^3.7.0",
-    "botbuilder-azure": "3.0.2"
-  },
-  "devDependencies": {
-      "restify": "^4.1.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+    "app-module-path": "^2.1.0",
+    "discord.js": "^10.0.1",
+    "moment": "^2.17.1",
+    "query-string": "^4.2.3",
+    "sprintf-js": "^1.0.3"
+  }
 }
