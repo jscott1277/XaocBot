@@ -10,7 +10,7 @@
 var config = {
     // Your API token from: https://discordapp.com/developers/applications/me
     // APP BOT USER > Token:
-    botToken: '',
+    botToken: process.env.DiscordToken,
 };
 
 // Export it
