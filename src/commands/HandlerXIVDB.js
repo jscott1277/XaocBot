@@ -118,9 +118,10 @@ class HandlerXIVDB
         })
     }
 
-    getQuest(string, callback) {
+    getQuest(string, callback)
+    {
         response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_NONE', [
-            string
+            string,
         ]));
 
         return callback(response.join('\n'));
