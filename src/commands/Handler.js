@@ -113,7 +113,7 @@ class Handler
                         });
                 }
             case Commands.COMMAND_XIVDB_GET_QUEST:
-                return HandlerXIVDB.getQuest(text.slice(3).join(' '), response => {
+                return HandlerXIVDB.getQuest(text.slice(2).join(' '), response => {
                     this.respond(message, response);
                 });
 
