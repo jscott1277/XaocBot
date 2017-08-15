@@ -1,8 +1,8 @@
-const Log = require('libs/Logging');
-const Commands = require('commands/Commands');
-const HandlerXIVDB = require('commands/HandlerXIVDB');
-const HandlerXIVSync = require('commands/HandlerXIVSync');
-const Language = require('language/Language');
+const Log = require('../libs/Logging');
+const Commands = require('./Commands');
+const HandlerXIVDB = require('./HandlerXIVDB');
+const HandlerXIVSync = require('./HandlerXIVSync');
+const Language = require('../language/Language');
 
 /**
  * Command handler class
