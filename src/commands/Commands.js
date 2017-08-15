@@ -5,6 +5,7 @@ module.exports = Object.freeze({
     COMMAND_KEY: '!mog',
     COMMAND_XIVDB_SEARCH: 'find',
     COMMAND_XIVDB_GET_ITEM: 'item', // chains onto find
+    COMMAND_XIVDB_GET_QUEST: 'quest',
 
     KUPO_BOT_LODESTONE: 'character'
 });

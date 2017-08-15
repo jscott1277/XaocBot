@@ -117,6 +117,14 @@ class HandlerXIVDB
             });
         })
     }
+
+    getQuest(string, callback) {
+        response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_NONE', [
+            string
+        ]));
+
+        return callback(response.join('\n'));
+    }
 }
 
 module.exports = new HandlerXIVDB();
