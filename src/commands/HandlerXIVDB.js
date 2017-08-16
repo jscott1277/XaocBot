@@ -118,6 +118,9 @@ class HandlerXIVDB
         })
     }
 
+    /*
+     * Generic method to return an item and lodestone url
+     */
     getObject(string, type, callback)
     {
         let response = [];
@@ -150,18 +153,13 @@ class HandlerXIVDB
                     // output item info
                     response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
                         obj.name,
-                        getLodestoneUrl(obj.lodestone_type, obj.lodestone_id)
+                        "http://na.finalfantasyxiv.com/lodestone/playguide/db/" + obj.lodestone_type + "/" + obj.lodestone_id
                     ]));
                 });
             }
 
             return callback(response.join('\n'));
         });
-    }
-
-    getLodestoneUrl(type, id)
-    {
-        return "http://na.finalfantasyxiv.com/lodestone/playguide/db/" + type + "/" + id;
     }
 }
 
