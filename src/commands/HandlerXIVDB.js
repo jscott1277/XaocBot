@@ -168,7 +168,7 @@ class HandlerXIVDB
 
                     for (let i in fields)
                     {
-                        console.log(result[fields[i]);
+                        console.log(result[fields[i]]);
                         fieldValues.push(result[fields[i]]);
                     }
 
