@@ -129,7 +129,7 @@ class HandlerXIVDB
 
             // output item info
             response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
-                quests[i].name
+                quests[0].name
             ]));
 
             return callback(response.join('\n'));
