@@ -75,7 +75,7 @@ class XIVDBApi
      * @param callback
      */
     getQuests(callback) {
-        this.query(callback, '/quest'());
+        this.query(callback, '/quest');
     }
 
     /**
