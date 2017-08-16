@@ -125,21 +125,13 @@ class HandlerXIVDB
         XIVDBApi.getQuests(quests => {
 
             console.log("Trying to get quests...");
-            console.log(quests.length);
 
-            // output item info
-            response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
-                quests[0].name
-            ]));
-
-            return callback(response.join('\n'));
-
-            /*
             // look for an item
             let questId = false;
             for (let i in quests) {
                 let quest = quests[i];
                 if (quest.name.toLowerCase() == string.toLowerCase()) {
+                    consol.log("Found quest.")
                     questId = quest.id;
                     break;
                 }
@@ -155,6 +147,8 @@ class HandlerXIVDB
 
             // get quest
             XIVDBApi.getQuest(questId, quest => {
+                console.log("Trying to get full quest info now.")
+
                 // quest not returned
                 if (!quest) {
                     response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
@@ -166,12 +160,11 @@ class HandlerXIVDB
 
                 // output item info
                 response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
-                    item.name
+                    quest.name
                 ]));
 
                 return callback(response.join('\n'));
             });
-            */
         });
     }
 }
