@@ -164,7 +164,7 @@ class HandlerXIVDB
             {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
-                    response.push(Language.say(responseTemplate, getFieldValues(result, fields)));
+                    response.push(Language.say(responseTemplate, HandlerXIVDB.getFieldValues(result, fields)));
                     return callback(response.join('\n'));
                 });
             }
