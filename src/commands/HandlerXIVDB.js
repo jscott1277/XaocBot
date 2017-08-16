@@ -128,14 +128,14 @@ class HandlerXIVDB
             let questId = false;
             for (let i in quests) {
                 let quest = quests[i];
-                if (name_en.toLowerCase() == string) {
+                if (quest.name_en.toLowerCase() == string) {
                     questId = quest.id;
                     break;
                 }
             }
 
             if (!questId) {
-                response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_NONE', [
+                response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
                     string,
                 ]));
 
