@@ -158,7 +158,7 @@ class HandlerXIVDB
                     // output item info
                     response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
                         result.name,
-                        'http://na.finalfantasyxiv.com/lodestone/playguide/db/' + result.lodestone_type + '/' + result.lodestone_id
+                        result.url_xivdb
                     ]));
                 });
             }
