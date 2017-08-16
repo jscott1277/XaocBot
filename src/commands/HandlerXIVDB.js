@@ -164,41 +164,30 @@ class HandlerXIVDB
             {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
-                    response.push(Language.say(responseTemplate, HandlerXIVDB.getFieldValues(result, fields)));
+
+                    var fieldValues = [];
+                    for (let i in fields) {
+                        var nestedFields = fields[i].split("/");
+                        if (nestedFields.length > 1) {
+                            if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined) {
+                                console.log(result[nestedFields[0]][nestedFields[1]]);
+                                fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
+                            }
+                            else {
+                                fieldValues.push('-');
+                            }
+                        }
+                        else {
+                            console.log(result[fields[i]]);
+                            fieldValues.push(result[fields[i]]);
+                        }
+                    }
+
+                    response.push(Language.say(responseTemplate, fieldValues));
                     return callback(response.join('\n'));
                 });
             }
         });
-    }
-
-    getFieldValues(result, fields)
-    {
-        var fieldValues = [];
-
-        for (let i in fields)
-        {
-            var nestedFields = fields[i].split("/");
-            if (nestedFields.length > 1)
-            {
-                if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined)
-                {
-                    console.log(result[nestedFields[0]][nestedFields[1]]);
-                    fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
-                }
-                else
-                {
-                    fieldValues.push('-');
-                }
-            }
-            else {
-                console.log(result[fields[i]]);
-                fieldValues.push(result[fields[i]]);
-            }
-        }
-
-        console.log(fieldValues);
-        
-        return fieldValues;
     }
 }
 
