@@ -163,7 +163,7 @@ class HandlerXIVDB
                 // output item info
                 response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
                     quest.name,
-                    LodestoneUrl + "/" + quest.lodestone_type + "/" + quest.lodestone_id
+                    LodestoneUrl + quest.lodestone_type + "/" + quest.lodestone_id
                 ]));
 
                 return callback(response.join('\n'));
