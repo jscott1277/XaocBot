@@ -56,7 +56,7 @@ class XIVDBApi
     }
 
     /**
-     * Get an item via it's id
+     * Get an item via its id
      *
      * @param id
      * @param callback
@@ -65,6 +65,29 @@ class XIVDBApi
     {
         this.query(callback, vsprintf('/item/%s', [
             id
+        ]));
+    }
+
+    /**
+     * Quest Lists
+     *
+     * @param string
+     * @param callback
+     */
+    getQuests(callback) {
+        this.query(callback, '/quest'());
+    }
+
+    /**
+     * Get a quest via its id
+     *
+     * @param id
+     * @param callback
+     */
+    getQuest(id, callback)
+    {
+        this.query(callback, vsprintf('/quest/%s', [
+                id
         ]));
     }
 }

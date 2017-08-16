@@ -122,11 +122,46 @@ class HandlerXIVDB
     {
         let response = [];
 
-        response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_NONE', [
-            string,
-        ]));
+        XIVDBApi.getQuests(quests => {
 
-        return callback(response.join('\n'));
+            // look for an item
+            let questId = false;
+            for (let i in quests) {
+                let quest = quests[i];
+                if (name_en.toLowerCase() == string) {
+                    questId = quest.id;
+                    break;
+                }
+            }
+
+            if (!questId) {
+                response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_NONE', [
+                    string,
+                ]));
+
+                return callback(response.join('\n'));
+            }
+
+            // get quest
+            XIVDBApi.getQuest(questId, quest => {
+                // quest not returned
+                if (!quest) {
+                    response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
+                        string,
+                    ]));
+
+                    return callback(response.join('\n'));
+                }
+
+                // output item info
+                response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
+                    item.name
+                ]));
+
+                return callback(response.join('\n'));
+            });
+
+        });
     }
 }
 
