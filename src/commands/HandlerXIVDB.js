@@ -5,8 +5,7 @@ const Language = require('../language/Language');
 /**
  * Handle XIVDB Commands
  */
-class HandlerXIVDB
-{
+class HandlerXIVDB {
     /**
      * Perform a search request to XIVDB API
      *
@@ -14,12 +13,11 @@ class HandlerXIVDB
      * @param callback
      * @returns {*}
      */
-    search(string, callback)
-    {
+    search(string, callback) {
         let response = [];
         XIVDBApi.search(string, results => {
             // loop through responses
-            for(let category in results) {
+            for (let category in results) {
                 let result = results[category];
 
                 // skip if no results
@@ -58,8 +56,7 @@ class HandlerXIVDB
      * @param callback
      * @returns {*}
      */
-    getItem(string, callback)
-    {
+    getItem(string, callback) {
         let response = [];
         string = string.toLowerCase();
 
@@ -75,7 +72,7 @@ class HandlerXIVDB
 
             // look for an item
             let itemId = false;
-            for(let i in items.results) {
+            for (let i in items.results) {
                 let item = items.results[i];
                 if (item.name.toLowerCase() == string) {
                     itemId = item.id;
@@ -121,47 +118,39 @@ class HandlerXIVDB
     /*
      * Generic method to return an item and lodestone url
      */
-    getObject(string, type, responseTemplate, fields, callback)
-    {
-        if (responseTemplate == undefined)
-        {
+    getObject(string, type, responseTemplate, fields, callback) {
+        if (responseTemplate == undefined) {
             responseTemplate = 'XIVDB_RESULTS_GENERIC_FOUND_ITEM';
         }
 
-        if (fields == undefined)
-        {
+        if (fields == undefined) {
             fields = ['name', 'url_xivdb'];
         }
 
         let response = [];
 
-        XIVDBApi.getList(type, results =>
-        {
+        XIVDBApi.getList(type, results => {
             console.log("Trying to get " + type + " object...");
 
             // look for an item
             let id = false;
-            for (let i in results)
-            {
+            for (let i in results) {
                 let result = results[i];
-                if (result.name.toLowerCase() == string.toLowerCase())
-                {
+                if (result.name.toLowerCase() == string.toLowerCase()) {
                     console.log("Found " + type + ".")
                     id = result.id;
                     break;
                 }
-            }            
+            }
 
-            if (!id)
-            {
+            if (!id) {
                 response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
                    string,
                 ]));
 
                 return callback(response.join('\n'));
             }
-            else
-            {
+            else {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
 
@@ -174,12 +163,17 @@ class HandlerXIVDB
                                 fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
                             }
                             else {
-                                fieldValues.push('-');
+                                fieldValues.push('???');
                             }
                         }
                         else {
-                            console.log(result[fields[i]]);
-                            fieldValues.push(result[fields[i]]);
+                            if (result[fields[i]] != null && result[fields[i]] != undefined) {
+                                console.log(result[fields[i]]);
+                                fieldValues.push(result[fields[i]]);
+                            }
+                            else {
+                                fieldValues.push('???');
+                            }
                         }
                     }
 
