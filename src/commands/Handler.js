@@ -116,6 +116,11 @@ class Handler
                         });
                 }
                 break;
+            case Commands.COMMAND_XIVDB_GET_RECIPE:
+            case Commands.COMMAND_XIVDB_GET_SHOP:
+            case Commands.COMMAND_XIVDB_GET_STATUS:
+            case Commands.COMMAND_XIVDB_GET_TITLE:
+            case Commands.COMMAND_XIVDB_GET_WEATHER:
             case Commands.COMMAND_XIVDB_GET_PLACENAME:
             case Commands.COMMAND_XIVDB_GET_NPC:
             case Commands.COMMAND_XIVDB_GET_MOUNT:
