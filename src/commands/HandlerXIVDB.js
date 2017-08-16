@@ -121,8 +121,18 @@ class HandlerXIVDB
     /*
      * Generic method to return an item and lodestone url
      */
-    getObject(string, type, callback)
+    getObject(string, type, responseTemplate, fields, callback)
     {
+        if (responseTemplate == undefined)
+        {
+            responseTemplate = 'XIVDB_RESULTS_GENERIC_FOUND_ITEM';
+        }
+
+        if (fields == undefined)
+        {
+            fields = ['name', 'url_xivdb'];
+        }
+
         let response = [];
 
         XIVDBApi.getList(type, results =>
@@ -154,10 +164,14 @@ class HandlerXIVDB
             {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
-                    response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
-                        result.name,
-                        result.url_xivdb
-                    ]));
+                    var fieldValues = [];
+
+                    for (let i in fields)
+                    {
+                        fieldValues.push(results[fields[i]]);
+                    }
+
+                    response.push(Language.say(responseTemplate, fieldValues));
 
                     return callback(response.join('\n'));
                 });
