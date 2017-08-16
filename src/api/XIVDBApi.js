@@ -28,8 +28,6 @@ class XIVDBApi
             path: path,
         }
 
-        console.log("Full api Url:  " + options.host + options.path + path);
-
         Log.echo('[XIVDB] Get: {url:cyan}', {
             url: (options.host + options.path),
         });

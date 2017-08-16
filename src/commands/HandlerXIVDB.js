@@ -127,7 +127,7 @@ class HandlerXIVDB
 
         XIVDBApi.getList(type, results =>
         {
-            console.log("Trying to get " + type + "object...");
+            console.log("Trying to get " + type + " object...");
 
             // look for an item
             let id = false;
@@ -147,6 +147,8 @@ class HandlerXIVDB
                 response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
                    string,
                 ]));
+
+                return callback(response.join('\n'));
             }
             else
             {
@@ -156,11 +158,11 @@ class HandlerXIVDB
                         result.name,
                         result.url_xivdb
                     ]));
+
+                    return callback(response.join('\n'));
                 });
             }
         });
-
-        return callback(response.join('\n'));
     }
 }
 

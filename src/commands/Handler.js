@@ -104,26 +104,29 @@ class Handler
                 return HandlerXIVSync.search(text, response => {
                     this.respond(message, response);
                 });
+                break;
 
             // search XIVDB
             case Commands.COMMAND_XIVDB_SEARCH:
-                switch(text[2]) {
+                switch (text[2]) {
                     // find an item
                     case Commands.COMMAND_XIVDB_GET_ITEM:
                         return HandlerXIVDB.getItem(text.slice(3).join(' '), response => {
                             this.respond(message, response);
                         });
                 }
+                break;
             case Commands.COMMAND_XIVDB_GET_FATE:
             case Commands.COMMAND_XIVDB_GET_QUEST:
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, response => {
                     this.respond(message, response);
                 });
+                break;
 
-                // general search
-                return HandlerXIVDB.search(text.slice(2).join(' '), response => {
-                    this.respond(message, response);
-                });
+            // general search
+            return HandlerXIVDB.search(text.slice(2).join(' '), response => {
+                this.respond(message, response);
+            });
 
         }
     }
