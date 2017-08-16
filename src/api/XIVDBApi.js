@@ -82,7 +82,7 @@ class XIVDBApi
     getObject(id, type, callback)
     {
         this.query(callback, vsprintf('/' + type + '/%s', [
-                    id
+            id
         ]));
     }
 }

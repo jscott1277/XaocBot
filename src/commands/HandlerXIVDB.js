@@ -125,27 +125,31 @@ class HandlerXIVDB
     {
         let response = [];
 
-        XIVDBApi.getList(type, results => {
-
+        XIVDBApi.getList(type, results =>
+        {
             console.log("Trying to get " + type + "object...");
 
             // look for an item
             let id = false;
-            for (let i in results) {
+            for (let i in results)
+            {
                 let result = results[i];
-                if (result.name.toLowerCase() == string.toLowerCase()) {
+                if (result.name.toLowerCase() == string.toLowerCase())
+                {
                     console.log("Found " + type + ".")
                     id = result.id;
                     break;
                 }
             }            
 
-            if (!id) {
+            if (!id)
+            {
                 response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
                    string,
                 ]));
             }
-            else {
+            else
+            {
                 // get object
                 XIVDBApi.getObject(id, type, obj => {
                     console.log("Trying to get full " + type + " info now.")
@@ -157,9 +161,9 @@ class HandlerXIVDB
                     ]));
                 });
             }
-
-            return callback(response.join('\n'));
         });
+
+        return callback(response.join('\n'));
     }
 }
 
