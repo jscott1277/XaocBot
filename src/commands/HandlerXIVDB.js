@@ -135,18 +135,7 @@ class HandlerXIVDB
                     id = result.id;
                     break;
                 }
-            }
-
-            if (!id) {
-                return callback(false);
-            }
-
-            // get object
-            XIVDBApi.getObject(id, type, obj => {
-                console.log("Trying to get full " + type + " info now.")
-
-                return callback(obj);
-            });
+            }            
 
             if (!id) {
                 response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
@@ -154,11 +143,16 @@ class HandlerXIVDB
                 ]));
             }
             else {
-                // output item info
-                response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
-                    obj.name,
-                    getLodestoneUrl(obj.lodestone_type, obj.lodestone_id)
-                ]));
+                // get object
+                XIVDBApi.getObject(id, type, obj => {
+                    console.log("Trying to get full " + type + " info now.")
+
+                    // output item info
+                    response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
+                        obj.name,
+                        getLodestoneUrl(obj.lodestone_type, obj.lodestone_id)
+                    ]));
+                });
             }
 
             return callback(response.join('\n'));
