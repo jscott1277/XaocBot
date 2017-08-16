@@ -168,8 +168,11 @@ class HandlerXIVDB
 
                     for (let i in fields)
                     {
-                        fieldValues.push(results[fields[i]]);
+                        console.log((result[fields[i]);
+                        fieldValues.push(result[fields[i]]);
                     }
+
+                    console.log(fieldValues);
 
                     response.push(Language.say(responseTemplate, fieldValues));
 
