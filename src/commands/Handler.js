@@ -116,6 +116,16 @@ class Handler
                         });
                 }
                 break;
+            case Commands.COMMAND_XIVDB_GET_PLACENAME:
+            case Commands.COMMAND_XIVDB_GET_NPC:
+            case Commands.COMMAND_XIVDB_GET_MOUNT:
+            case Commands.COMMAND_XIVDB_GET_MINION:
+            case Commands.COMMAND_XIVDB_GET_INSTANCE:
+            case Commands.COMMAND_XIVDB_GET_EMOTE:
+            case Commands.COMMAND_XIVDB_GET_ACTION:
+            case Commands.COMMAND_XIVDB_GET_ACHIEVEMENT:
+            case Commands.COMMAND_XIVDB_GET_LEVE:
+            case Commands.COMMAND_XIVDB_GET_ENEMY:
             case Commands.COMMAND_XIVDB_GET_FATE:
             case Commands.COMMAND_XIVDB_GET_QUEST:
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, response => {
