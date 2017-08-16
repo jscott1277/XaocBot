@@ -124,6 +124,9 @@ class HandlerXIVDB
 
         XIVDBApi.getQuests(quests => {
 
+            console.log("Trying to get quests...");
+            console.log(quests.length);
+
             // output item info
             response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
                 quests[i].name
