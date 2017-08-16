@@ -28,6 +28,8 @@ class English
             XIVDB_RESULTS_CONTENT_FOUND_ITEM: '%s (%s)\nDescription: %s\nLevel: %s, Item Level: %s\nLink: %s',
 
             XIVDB_RESULTS_GENERIC_FOUND_ITEM: 'Found %s:  %s',
+
+            XIVDB_RESULTS_RECIPE_FOUND_ITEM: '%s [%s]:  %s',
             //
             // Lodestone
             //

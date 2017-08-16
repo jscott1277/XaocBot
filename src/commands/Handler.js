@@ -114,6 +114,11 @@ class Handler
                 });
                 break;
             case Commands.COMMAND_XIVDB_GET_RECIPE:
+                var fields = ['name', 'class_name', 'url_xivdb'];
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_RECIPE_FOUND_ITEM', fields, response => {
+                    this.respond(message, response);
+                });
+                break;
             case Commands.COMMAND_XIVDB_GET_SHOP:
             case Commands.COMMAND_XIVDB_GET_STATUS:
             case Commands.COMMAND_XIVDB_GET_TITLE:
