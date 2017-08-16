@@ -164,31 +164,41 @@ class HandlerXIVDB
             {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
-                    var fieldValues = [];
-
-                    for (let i in fields)
-                    {
-                        var nestedFields = fields[i].split("/");
-                        if (nestedFields.length > 1)
-                        {
-                            console.log(result[nestedFields[0]][nestedFields[1]]);
-                            fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
-                        }
-                        else
-                        {
-                            console.log(result[fields[i]]);
-                            fieldValues.push(result[fields[i]]);
-                        }
-                    }
-
-                    console.log(fieldValues);
-
-                    response.push(Language.say(responseTemplate, fieldValues));
-
+                    response.push(Language.say(responseTemplate, getFieldValues(result, fields)));
                     return callback(response.join('\n'));
                 });
             }
         });
+    }
+
+    getFieldValues(result, fields)
+    {
+        var fieldValues = [];
+
+        for (let i in fields)
+        {
+            var nestedFields = fields[i].split("/");
+            if (nestedFields.length > 1)
+            {
+                if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined)
+                {
+                    console.log(result[nestedFields[0]][nestedFields[1]]);
+                    fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
+                }
+                else
+                {
+                    fieldValues.push('-');
+                }
+            }
+            else {
+                console.log(result[fields[i]]);
+                fieldValues.push(result[fields[i]]);
+            }
+        }
+
+        console.log(fieldValues);
+        
+        return fieldValues;
     }
 }
 
