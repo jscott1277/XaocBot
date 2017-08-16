@@ -124,6 +124,14 @@ class HandlerXIVDB
 
         XIVDBApi.getQuests(quests => {
 
+            // output item info
+            response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
+                quests[i].name
+            ]));
+
+            return callback(response.join('\n'));
+
+            /*
             // look for an item
             let questId = false;
             for (let i in quests) {
@@ -160,7 +168,7 @@ class HandlerXIVDB
 
                 return callback(response.join('\n'));
             });
-
+            */
         });
     }
 }
