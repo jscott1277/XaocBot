@@ -152,10 +152,6 @@ class HandlerXIVDB
             {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
-                    console.log("Found full result " + type + " info now.")
-                    console.log(result);
-
-                    // output item info
                     response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
                         result.name,
                         result.url_xivdb
