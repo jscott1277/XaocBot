@@ -129,7 +129,7 @@ class Handler
             case Commands.COMMAND_XIVDB_GET_ENEMY:
             case Commands.COMMAND_XIVDB_GET_FATE:
             case Commands.COMMAND_XIVDB_GET_QUEST:
-                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, response => {
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, undefined, undefined,  response => {
                     this.respond(message, response);
                 });
                 break;
