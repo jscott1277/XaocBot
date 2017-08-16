@@ -68,26 +68,21 @@ class XIVDBApi
         ]));
     }
 
-    /**
-     * Quest Lists
-     *
-     * @param string
-     * @param callback
+    /*
+     * Gets a list of objects based on type
      */
-    getQuests(callback) {
-        this.query(callback, '/quest');
+    getList(type, callback)
+    {
+        this.query(callback, '/' + type);
     }
 
-    /**
-     * Get a quest via its id
-     *
-     * @param id
-     * @param callback
+    /*
+     * Gets an object based on id and type
      */
-    getQuest(id, callback)
+    getObject(id, type, callback)
     {
-        this.query(callback, vsprintf('/quest/%s', [
-                id
+        this.query(callback, vsprintf('/' + type + '/%s', [
+                    id
         ]));
     }
 }

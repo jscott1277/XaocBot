@@ -86,6 +86,8 @@ class Handler
             return this.setResponse(message, Language.say('NO_COMMAND'));
         }
 
+        var type = text[1];
+
         //
         // The priority of your commands needs to be in the correct order, eg:
         // !mog find item <name>
@@ -95,7 +97,7 @@ class Handler
         // > find <name>
         // > find > item > <name>
         //
-        switch(text[1])
+        switch (type)
         {
             // search lodestone
             case Commands.KUPO_BOT_LODESTONE:
@@ -112,8 +114,9 @@ class Handler
                             this.respond(message, response);
                         });
                 }
+            case Commands.COMMAND_XIVDB_GET_FATE:
             case Commands.COMMAND_XIVDB_GET_QUEST:
-                return HandlerXIVDB.getQuest(text.slice(2).join(' '), response => {
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, response => {
                     this.respond(message, response);
                 });
 

@@ -27,8 +27,7 @@ class English
             XIVDB_RESULTS_CONTENT_FOUND_TOTAL: 'I found %s results',
             XIVDB_RESULTS_CONTENT_FOUND_ITEM: '%s (%s)\nDescription: %s\nLevel: %s, Item Level: %s\nLink: %s',
 
-            XIVDB_RESULTS_QUEST_FOUND_NONE: 'TODO: Implement Quest search so I can find the quest: %s',
-            XIVDB_RESULTS_QUEST_FOUND_ITEM: 'Found %s:  %s',
+            XIVDB_RESULTS_GENERIC_FOUND_ITEM: 'Found %s:  %s',
             //
             // Lodestone
             //

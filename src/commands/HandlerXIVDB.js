@@ -2,8 +2,6 @@ const Log = require('../libs/Logging');
 const XIVDBApi = require('../api/XIVDBApi');
 const Language = require('../language/Language');
 
-const LodestoneUrl = "http://na.finalfantasyxiv.com/lodestone/playguide/db/";
-
 /**
  * Handle XIVDB Commands
  */
@@ -120,55 +118,56 @@ class HandlerXIVDB
         })
     }
 
-    getQuest(string, callback)
+    getObject(string, type, callback)
     {
         let response = [];
 
-        XIVDBApi.getQuests(quests => {
+        XIVDBApi.getList(type, results => {
 
-            console.log("Trying to get quests...");
+            console.log("Trying to get " + type + "object...");
 
             // look for an item
-            let questId = false;
-            for (let i in quests) {
-                let quest = quests[i];
-                if (quest.name.toLowerCase() == string.toLowerCase()) {
-                    console.log("Found quest.")
-                    questId = quest.id;
+            let id = false;
+            for (let i in results) {
+                let result = results[i];
+                if (result.name.toLowerCase() == string.toLowerCase()) {
+                    console.log("Found " + type + ".")
+                    id = result.id;
                     break;
                 }
             }
 
-            if (!questId) {
-                response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
-                    string,
-                ]));
-
-                return callback(response.join('\n'));
+            if (!id) {
+                return callback(false);
             }
 
-            // get quest
-            XIVDBApi.getQuest(questId, quest => {
-                console.log("Trying to get full quest info now.")
+            // get object
+            XIVDBApi.getObject(id, type, obj => {
+                console.log("Trying to get full " + type + " info now.")
 
-                // quest not returned
-                if (!quest) {
-                    response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
-                        string,
-                    ]));
-
-                    return callback(response.join('\n'));
-                }
-
-                // output item info
-                response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
-                    quest.name,
-                    LodestoneUrl + quest.lodestone_type + "/" + quest.lodestone_id
-                ]));
-
-                return callback(response.join('\n'));
+                return callback(obj);
             });
+
+            if (!id) {
+                response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [
+                   string,
+                ]));
+            }
+            else {
+                // output item info
+                response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
+                    obj.name,
+                    getLodestoneUrl(obj.lodestone_type, obj.lodestone_id)
+                ]));
+            }
+
+            return callback(response.join('\n'));
         });
+    }
+
+    getLodestoneUrl(type, id)
+    {
+        return "http://na.finalfantasyxiv.com/lodestone/playguide/db/" + type + "/" + id;
     }
 }
 

@@ -6,6 +6,7 @@ module.exports = Object.freeze({
     COMMAND_XIVDB_SEARCH: 'find',
     COMMAND_XIVDB_GET_ITEM: 'item', // chains onto find
     COMMAND_XIVDB_GET_QUEST: 'quest',
+    COMMAND_XIVDB_GET_FATE: 'fate',
 
     KUPO_BOT_LODESTONE: 'character'
 });
