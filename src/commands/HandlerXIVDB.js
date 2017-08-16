@@ -151,13 +151,13 @@ class HandlerXIVDB
             else
             {
                 // get object
-                XIVDBApi.getObject(id, type, obj => {
+                XIVDBApi.getObject(id, type, result => {
                     console.log("Trying to get full " + type + " info now.")
 
                     // output item info
                     response.push(Language.say('XIVDB_RESULTS_GENERIC_FOUND_ITEM', [
-                        obj.name,
-                        "http://na.finalfantasyxiv.com/lodestone/playguide/db/" + obj.lodestone_type + "/" + obj.lodestone_id
+                        result.name,
+                        "http://na.finalfantasyxiv.com/lodestone/playguide/db/" + result.lodestone_type + "/" + result.lodestone_id
                     ]));
                 });
             }

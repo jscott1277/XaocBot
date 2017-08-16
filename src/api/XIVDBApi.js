@@ -19,6 +19,8 @@ class XIVDBApi
      */
     query(callback, path)
     {
+        console.log("Starting query to XIVDB");
+
         // request options
         let options = {
             host: API_ENDPOINT,
@@ -36,7 +38,8 @@ class XIVDBApi
             res.on('data', function(data) {
                 json += data;
             })
-            .on('end', function() {
+            .on('end', function () {
+                console.log("Query to XIVDB ended.");
                 callback(JSON.parse(json));
             });
         });
@@ -81,6 +84,7 @@ class XIVDBApi
      */
     getObject(id, type, callback)
     {
+        console.log("Attempting to query for " + type);
         this.query(callback, vsprintf('/' + type + '/%s', [
             id
         ]));
