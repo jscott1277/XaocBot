@@ -108,7 +108,8 @@ class Handler
 
             // search XIVDB
             case Commands.COMMAND_XIVDB_GET_ITEM:
-                return HandlerXIVDB.getItem(text.slice(2).join(' '), response => {
+                var fields = [ 'name', 'category_name', 'help', 'level_equip', 'level_item', 'url_xivdb' ];
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_CONTENT_FOUND_ITEM', fields, response => {
                     this.respond(message, response);
                 });
                 break;
