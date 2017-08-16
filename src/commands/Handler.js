@@ -87,16 +87,6 @@ class Handler
         }
 
         var type = text[1];
-
-        //
-        // The priority of your commands needs to be in the correct order, eg:
-        // !mog find item <name>
-        // !mog find <name>
-        //
-        // Commands can sub devide down to multiple switches
-        // > find <name>
-        // > find > item > <name>
-        //
         switch (type)
         {
             // search lodestone
@@ -125,6 +115,11 @@ class Handler
             case Commands.COMMAND_XIVDB_GET_WEATHER:
             case Commands.COMMAND_XIVDB_GET_PLACENAME:
             case Commands.COMMAND_XIVDB_GET_NPC:
+                var fields = ['name', 'placename/name', 'position', 'url_xivdb'];
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_NPC_FOUND_ITEM', fields, response => {
+                    this.respond(message, response);
+                });
+                break;
             case Commands.COMMAND_XIVDB_GET_MOUNT:
             case Commands.COMMAND_XIVDB_GET_MINION:
             case Commands.COMMAND_XIVDB_GET_INSTANCE:

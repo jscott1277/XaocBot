@@ -168,8 +168,17 @@ class HandlerXIVDB
 
                     for (let i in fields)
                     {
-                        console.log(result[fields[i]]);
-                        fieldValues.push(result[fields[i]]);
+                        var res = str.split("/");
+                        if (res.length > 1)
+                        {
+                            console.log(result[res[0]][res[1]]);
+                            fieldValues.push(result[res[0]][res[1]]);
+                        }
+                        else
+                        {
+                            console.log(result[fields[i]]);
+                            fieldValues.push(result[fields[i]]);
+                        }
                     }
 
                     console.log(fieldValues);
