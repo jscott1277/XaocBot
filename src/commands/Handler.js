@@ -108,6 +108,10 @@ class Handler
 
             // search XIVDB
             case Commands.COMMAND_XIVDB_GET_ITEM:
+                return HandlerXIVDB.getItem(text.slice(2).join(' '), response => {
+                    this.respond(message, response);
+                });
+                break;
             case Commands.COMMAND_XIVDB_GET_RECIPE:
             case Commands.COMMAND_XIVDB_GET_SHOP:
             case Commands.COMMAND_XIVDB_GET_STATUS:
