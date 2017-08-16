@@ -2,6 +2,8 @@ const Log = require('../libs/Logging');
 const XIVDBApi = require('../api/XIVDBApi');
 const Language = require('../language/Language');
 
+const LodestoneUrl = "http://na.finalfantasyxiv.com/lodestone/playguide/db/";
+
 /**
  * Handle XIVDB Commands
  */
@@ -160,7 +162,8 @@ class HandlerXIVDB
 
                 // output item info
                 response.push(Language.say('XIVDB_RESULTS_QUEST_FOUND_ITEM', [
-                    quest.name
+                    quest.name,
+                    LodestoneUrl + "/" + quest.lodestone_type + "/" + quest.lodestone_id
                 ]));
 
                 return callback(response.join('\n'));
