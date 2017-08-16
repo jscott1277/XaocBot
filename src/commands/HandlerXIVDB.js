@@ -128,7 +128,7 @@ class HandlerXIVDB
             let questId = false;
             for (let i in quests) {
                 let quest = quests[i];
-                if (quest.name_en.toLowerCase() == string) {
+                if (quest.name.toLowerCase() == string.toLowerCase()) {
                     questId = quest.id;
                     break;
                 }
