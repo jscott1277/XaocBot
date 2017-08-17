@@ -33,7 +33,7 @@ class English
 
             XIVDB_RESULTS_NPC_FOUND_ITEM: '%s found in %s at (%s):  %s',
 
-            XIVDB_RESULTS_ENEMY_FOUND_ITEM: '%s found (%s):  %s',
+            XIVDB_RESULTS_ENEMY_FOUND_ITEM: '%s found. Details: %s:  %s',
 
             //
             // Lodestone
