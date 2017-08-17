@@ -174,7 +174,7 @@ class HandlerXIVDB {
                                     fieldValues.push('n/a');
                                 }
                                 break;
-                            case 3: //maps array will be zero...hack for now
+                            case 3: //maps array will be zero...hack for now                                
                                 if (result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]]);
                                 }
@@ -183,8 +183,9 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 5: //for fates...hack for now
-                                if (result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]] != undefined) {
-                                    fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]]);
+                                var val = result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]];
+                                if (val != undefined) {
+                                    fieldValues.push(val);
                                 }
                                 else {
                                     fieldValues.push('n/a');

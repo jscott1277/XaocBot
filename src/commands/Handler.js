@@ -116,7 +116,7 @@ class Handler
                 });
                 break;
             case Commands.COMMAND_XIVDB_GET_ENEMY:
-                var fields = ['name', 'map_data/points/app_data/fate/fate', 'url_xivdb'];
+                var fields = ['name', 'map_data/map/placename_name', 'map_data/map/tooltip', 'map_data/map/placename_name/fate/is_fate', 'url_xivdb'];
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_ENEMY_FOUND_ITEM', fields, response => {
                     this.respond(message, response);
                 });
