@@ -175,7 +175,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 3: //maps array will be zero...hack for now
-                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]][nestedFields[2]] != undefined) {
+                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]]);
                                 }
                                 else {
