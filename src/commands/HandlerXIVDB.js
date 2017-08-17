@@ -167,7 +167,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 2:
-                                if result[nestedFields[0]][nestedFields[1]] != undefined) {
+                                if (result[nestedFields[0]][nestedFields[1]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
                                 }
                                 else {
