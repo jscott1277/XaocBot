@@ -175,7 +175,9 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 3:
-                                if (result[nestedFields[0]] != null &&result[nestedFields[0]][nestedFields[1]][nestedFields[2]] != undefined) {
+                                console.log("Case 3");
+                                console.log(result[nestedFields[0]][nestedFields[1]][nestedFields[2]]);
+                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]][nestedFields[2]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][nestedFields[2]]);
                                 }
                                 else {
