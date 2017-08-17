@@ -159,7 +159,7 @@ class HandlerXIVDB {
                         var nestedFields = fields[i].split("/");
                         switch (nestedFields.length) {
                             case 1:
-                                if (result[fields[i]] != null && result[fields[i]] != undefined) {
+                                if (result[fields[i]] != undefined) {
                                     fieldValues.push(result[fields[i]]);
                                 }
                                 else {
@@ -167,7 +167,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 2:
-                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]] != undefined) {
+                                if result[nestedFields[0]][nestedFields[1]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
                                 }
                                 else {
@@ -175,7 +175,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 3: //maps array will be zero...hack for now
-                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]] != undefined) {
+                                if (result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]]);
                                 }
                                 else {
@@ -183,7 +183,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 5: //for fates...hack for now
-                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]] != undefined) {
+                                if (result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]]);
                                 }
                                 else {
