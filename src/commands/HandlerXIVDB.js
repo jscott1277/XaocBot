@@ -167,7 +167,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 2:
-                                if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined) {
+                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
                                 }
                                 else {
@@ -175,7 +175,7 @@ class HandlerXIVDB {
                                 }
                                 break;
                             case 3:
-                                if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined) {
+                                if (result[nestedFields[0]] != null &&result[nestedFields[0]][nestedFields[1]][nestedFields[2]] != undefined) {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][nestedFields[2]]);
                                 }
                                 else {
