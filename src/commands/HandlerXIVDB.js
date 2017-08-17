@@ -157,23 +157,31 @@ class HandlerXIVDB {
                     var fieldValues = [];
                     for (let i in fields) {
                         var nestedFields = fields[i].split("/");
-                        if (nestedFields.length > 1) {
-                            if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined) {
-                                console.log(result[nestedFields[0]][nestedFields[1]]);
-                                fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
-                            }
-                            else {
-                                fieldValues.push('???');
-                            }
-                        }
-                        else {
-                            if (result[fields[i]] != null && result[fields[i]] != undefined) {
-                                console.log(result[fields[i]]);
-                                fieldValues.push(result[fields[i]]);
-                            }
-                            else {
-                                fieldValues.push('???');
-                            }
+                        switch (nestedFields.length) {
+                            case 1:
+                                if (result[fields[i]] != null && result[fields[i]] != undefined) {
+                                    fieldValues.push(result[fields[i]]);
+                                }
+                                else {
+                                    fieldValues.push('???');
+                                }
+                                break;
+                            case 2:
+                                if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined) {
+                                    fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
+                                }
+                                else {
+                                    fieldValues.push('???');
+                                }
+                                break;
+                            case 3:
+                                if (result[nestedFields[0]] != null && result[nestedFields[0]] != undefined) {
+                                    fieldValues.push(result[nestedFields[0]][nestedFields[1]][nestedFields[2]]);
+                                }
+                                else {
+                                    fieldValues.push('???');
+                                }
+                                break;
                         }
                     }
 

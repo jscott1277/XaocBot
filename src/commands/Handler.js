@@ -109,17 +109,23 @@ class Handler
                     this.respond(message, response);
                 });
                 break;
-            case Commands.COMMAND_XIVDB_GET_SHOP:
-            case Commands.COMMAND_XIVDB_GET_STATUS:
-            case Commands.COMMAND_XIVDB_GET_TITLE:
-            case Commands.COMMAND_XIVDB_GET_WEATHER:
-            case Commands.COMMAND_XIVDB_GET_PLACENAME:
             case Commands.COMMAND_XIVDB_GET_NPC:
                 var fields = ['name', 'placename/name', 'position', 'url_xivdb'];
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_NPC_FOUND_ITEM', fields, response => {
                     this.respond(message, response);
                 });
                 break;
+            case Commands.COMMAND_XIVDB_GET_ENEMY:
+                var fields = ['name', 'map_data/maps/tooltip', 'url_xivdb'];
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_ENEMY_FOUND_ITEM', fields, response => {
+                    this.respond(message, response);
+                });
+                break;
+            case Commands.COMMAND_XIVDB_GET_SHOP:
+            case Commands.COMMAND_XIVDB_GET_STATUS:
+            case Commands.COMMAND_XIVDB_GET_TITLE:
+            case Commands.COMMAND_XIVDB_GET_WEATHER:
+            case Commands.COMMAND_XIVDB_GET_PLACENAME:
             case Commands.COMMAND_XIVDB_GET_MOUNT:
             case Commands.COMMAND_XIVDB_GET_MINION:
             case Commands.COMMAND_XIVDB_GET_INSTANCE:
@@ -127,7 +133,6 @@ class Handler
             case Commands.COMMAND_XIVDB_GET_ACTION:
             case Commands.COMMAND_XIVDB_GET_ACHIEVEMENT:
             case Commands.COMMAND_XIVDB_GET_LEVE:
-            case Commands.COMMAND_XIVDB_GET_ENEMY:
             case Commands.COMMAND_XIVDB_GET_FATE:
             case Commands.COMMAND_XIVDB_GET_QUEST:
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, undefined, undefined,  response => {
