@@ -163,7 +163,7 @@ class HandlerXIVDB {
                                     fieldValues.push(result[fields[i]]);
                                 }
                                 else {
-                                    fieldValues.push('???');
+                                    fieldValues.push('n/a');
                                 }
                                 break;
                             case 2:
@@ -171,7 +171,7 @@ class HandlerXIVDB {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
                                 }
                                 else {
-                                    fieldValues.push('???');
+                                    fieldValues.push('n/a');
                                 }
                                 break;
                             case 3: //maps array will be zero...hack for now
@@ -179,7 +179,15 @@ class HandlerXIVDB {
                                     fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]]);
                                 }
                                 else {
-                                    fieldValues.push('???');
+                                    fieldValues.push('n/a');
+                                }
+                                break;
+                            case 5: //for fates...hack for now
+                                if (result[nestedFields[0]] != null && result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]] != undefined) {
+                                    fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]]);
+                                }
+                                else {
+                                    fieldValues.push('n/a');
                                 }
                                 break;
                         }
