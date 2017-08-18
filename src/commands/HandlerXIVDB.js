@@ -16,36 +16,54 @@ class HandlerXIVDB {
      */
     search(string, type, callback) {
         let response = [];
-        XIVDBApi.search(string, type, results => {
-            // loop through responses
-            for (let category in results) {
-                let result = results[category];
+        XIVDBApi.search(string, type, result => {
 
-                // skip if no results
-                if (result.total == 0) {
-                    continue;
-                }
-
-                // print total for catagory
-                response.push(Language.say('XIVDB_RESULTS_COUNT', [
-                    result.total,
-                    category,
-                ]));
+            if (type != '') {
 
                 // print out up to top 3 results
-                for (let i in result.results) {
-                    if (i < 4) {
-                        let content = result.results[i];
+                let typeResults = jsonQuery(type + '[*]', { result });
+                for (let i in typeResults) {
+                    if (i < 10) {
+                        let typeResult = typeResults[i];
                         response.push(Language.say('XIVDB_RESULTS_CONTENT', [
                             +i + +1,
-                            content.name,
-                            content.url_xivdb
+                            typeResult.name,
+                            typeResult.url_xivdb
                         ]));
                     }
                 }
-            }
 
-            callback(response.join('\n'));
+            } else {
+                // loop through responses
+                for (let category in results) {
+                    let result = results[category];
+
+                    // skip if no results
+                    if (result.total == 0) {
+                        continue;
+                    }
+
+                    // print total for catagory
+                    response.push(Language.say('XIVDB_RESULTS_COUNT', [
+                        result.total,
+                        category,
+                    ]));
+
+                    // print out up to top 3 results
+                    for (let i in result.results) {
+                        if (i < 4) {
+                            let content = result.results[i];
+                            response.push(Language.say('XIVDB_RESULTS_CONTENT', [
+                                +i + +1,
+                                content.name,
+                                content.url_xivdb
+                            ]));
+                        }
+                    }
+                }
+
+                callback(response.join('\n'));
+            }
         });
     }
 
