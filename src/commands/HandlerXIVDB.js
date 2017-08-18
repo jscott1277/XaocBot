@@ -22,7 +22,6 @@ class HandlerXIVDB {
 
                 // print out up to top 10 results
                 let typeResults = jsonQuery(type + '.results[*]', { results });
-                console.log(typeResults);
                 for (let i in typeResults) {
                     if (i < 10) {
                         let typeResult = typeResults[i];
