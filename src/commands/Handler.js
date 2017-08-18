@@ -166,7 +166,7 @@ class Handler
                         return HandlerXIVDB.search(text.slice(3).join(' '), text.slice(2), response => {
                             this.respond(message, response);
                         });
-                            break;
+                        break;
                     default:
                         return HandlerXIVDB.search(text.slice(2).join(' '), '', response => {
                             this.respond(message, response);
