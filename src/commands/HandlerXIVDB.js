@@ -16,12 +16,12 @@ class HandlerXIVDB {
      */
     search(string, type, callback) {
         let response = [];
-        XIVDBApi.search(string, type, result => {
+        XIVDBApi.search(string, type, results => {
 
             if (type.trim() != '') {
 
                 // print out up to top 3 results
-                let typeResults = jsonQuery(type + '[*]', { result });
+                let typeResults = jsonQuery(type + '[*]', { results });
                 for (let i in typeResults) {
                     if (i < 10) {
                         let typeResult = typeResults[i];
@@ -34,6 +34,7 @@ class HandlerXIVDB {
                 }
 
             } else {
+
                 // loop through responses
                 for (let category in results) {
                     let result = results[category];
