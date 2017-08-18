@@ -18,7 +18,7 @@ class HandlerXIVDB {
         let response = [];
         XIVDBApi.search(string, type, result => {
 
-            if (type != '') {
+            if (type.trim() != '') {
 
                 // print out up to top 3 results
                 let typeResults = jsonQuery(type + '[*]', { result });
