@@ -37,7 +37,7 @@ class HandlerXIVDB {
                     if (i < 4) {
                         let content = result.results[i];
                         response.push(Language.say('XIVDB_RESULTS_CONTENT', [
-                            i,
+                            (i + 1),
                             content.id,
                             content.name,
                             content.url_xivdb
