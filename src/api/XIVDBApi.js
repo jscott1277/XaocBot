@@ -53,14 +53,12 @@ class XIVDBApi
      */
     search(keyword, type, callback)
     {
-        var queryString = query.stringify({
-            string: keyword,
-        });
+        var queryString = "string=" + encodeURIComponent(keyword);
 
         console.log(queryString);
 
         if (type.trim() != '') {
-            queryString = queryString + "&one=" + type;
+            queryString = queryString + "&one=" + encodeURIComponent(type);
         }
 
          console.log(queryString);
