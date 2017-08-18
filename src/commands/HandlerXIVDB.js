@@ -14,9 +14,9 @@ class HandlerXIVDB {
      * @param callback
      * @returns {*}
      */
-    search(string, callback) {
+    search(string, type, callback) {
         let response = [];
-        XIVDBApi.search(string, results => {
+        XIVDBApi.search(string, type, results => {
             // loop through responses
             for (let category in results) {
                 let result = results[category];

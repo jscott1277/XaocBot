@@ -142,9 +142,37 @@ class Handler
 
             default:
                 // general search
-                return HandlerXIVDB.search(text.slice(2).join(' '), response => {
-                    this.respond(message, response);
-                });
+                switch (text.slice(2))
+                {
+                    case COMMAND_XIVDB_SEARCH_ITEMS:
+                    case COMMAND_XIVDB_SEARCH_QUESTS:
+                    case COMMAND_XIVDB_SEARCH_FATES:
+                    case COMMAND_XIVDB_SEARCH_ENEMIES:
+                    case COMMAND_XIVDB_SEARCH_LEVES:
+                    case COMMAND_XIVDB_SEARCH_ACHIEVEMENTS:
+                    case COMMAND_XIVDB_SEARCH_ACTIONS:
+                    case COMMAND_XIVDB_SEARCH_EMOTES:
+                    case COMMAND_XIVDB_SEARCH_GATHERINGS:
+                    case COMMAND_XIVDB_SEARCH_INSTANCES:
+                    case COMMAND_XIVDB_SEARCH_MINIONS: 
+                    case COMMAND_XIVDB_SEARCH_MOUNTS:
+                    case COMMAND_XIVDB_SEARCH_NPCS: 
+                    case COMMAND_XIVDB_SEARCH_PLACENAMES: 
+                    case COMMAND_XIVDB_SEARCH_RECIPES: 
+                    case COMMAND_XIVDB_SEARCH_SHOPS: 
+                    case COMMAND_XIVDB_SEARCH_STATUSES: 
+                    case COMMAND_XIVDB_SEARCH_TITLES:
+                    case COMMAND_XIVDB_SEARCH_WEATHERS:
+                        return HandlerXIVDB.search(text.slice(3).join(' '), text.slice(2), response => {
+                            this.respond(message, response);
+                        });
+                            break;
+                    default:
+                        return HandlerXIVDB.search(text.slice(2).join(' '), '', response => {
+                            this.respond(message, response);
+                        });
+                        break;
+                }
             break;
 
         }

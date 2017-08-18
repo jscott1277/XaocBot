@@ -4,7 +4,7 @@ module.exports = Object.freeze({
 
     COMMAND_KEY: '!mog',
     COMMAND_XIVDB_SEARCH: 'find',
-    COMMAND_XIVDB_GET_ITEM: 'item', // chains onto find
+    COMMAND_XIVDB_GET_ITEM: 'item',
     COMMAND_XIVDB_GET_QUEST: 'quest',
     COMMAND_XIVDB_GET_FATE: 'fate',
     COMMAND_XIVDB_GET_ENEMY: 'enemy',
@@ -23,6 +23,26 @@ module.exports = Object.freeze({
     COMMAND_XIVDB_GET_STATUS: 'status',
     COMMAND_XIVDB_GET_TITLE: 'title',
     COMMAND_XIVDB_GET_WEATHER: 'weather',
+
+    COMMAND_XIVDB_SEARCH_ITEMS: 'items',
+    COMMAND_XIVDB_SEARCH_QUESTS: 'quest',
+    COMMAND_XIVDB_SEARCH_FATES: 'fate',
+    COMMAND_XIVDB_SEARCH_ENEMIES: 'enemy',
+    COMMAND_XIVDB_SEARCH_LEVES: 'leve',
+    COMMAND_XIVDB_SEARCH_ACHIEVEMENTS: 'achievement',
+    COMMAND_XIVDB_SEARCH_ACTIONS: 'action',
+    COMMAND_XIVDB_SEARCH_EMOTES: 'emote',
+    COMMAND_XIVDB_SEARCH_GATHERINGS: 'gathering',
+    COMMAND_XIVDB_SEARCH_INSTANCES: 'instance',
+    COMMAND_XIVDB_SEARCH_MINIONS: 'minion',
+    COMMAND_XIVDB_SEARCH_MOUNTS: 'mount',
+    COMMAND_XIVDB_SEARCH_NPCS: 'npc',
+    COMMAND_XIVDB_SEARCH_PLACENAMES: 'placename',
+    COMMAND_XIVDB_SEARCH_RECIPES: 'recipe',
+    COMMAND_XIVDB_SEARCH_SHOPS: 'shop',
+    COMMAND_XIVDB_SEARCH_STATUSES: 'status',
+    COMMAND_XIVDB_SEARCH_TITLES: 'title',
+    COMMAND_XIVDB_SEARCH_WEATHERS: 'weather',
 
     KUPO_BOT_LODESTONE: 'character'
 });

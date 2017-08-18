@@ -51,10 +51,11 @@ class XIVDBApi
      * @param string
      * @param callback
      */
-    search(string, callback)
+    search(string, type, callback)
     {
         this.query(callback, '/search?' + query.stringify({
             string: string,
+            one: type,
         }));
     }
 
