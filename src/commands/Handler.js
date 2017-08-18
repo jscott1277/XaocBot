@@ -110,13 +110,13 @@ class Handler
                 });
                 break;
             case Commands.COMMAND_XIVDB_GET_NPC:
-                var fields = ['name', 'placename/name', 'position', 'url_xivdb'];
+                var fields = ['name', 'placename.name', 'position', 'url_xivdb'];
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_NPC_FOUND_ITEM', fields, response => {
                     this.respond(message, response);
                 });
                 break;
             case Commands.COMMAND_XIVDB_GET_ENEMY:
-                var fields = ['name', 'map_data/map/placename_name', 'map_data/map/tooltip', 'map_data/points/app_data/fate/is_fate', 'url_xivdb'];
+                var fields = ['name', 'map_data.map[0].placename_name', 'map_data.map[0].tooltip', 'map_data.points[0].app_data.fate.is_fate', 'url_xivdb'];
                 return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_ENEMY_FOUND_ITEM', fields, response => {
                     this.respond(message, response);
                 });

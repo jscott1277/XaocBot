@@ -1,6 +1,7 @@
 const Log = require('../libs/Logging');
 const XIVDBApi = require('../api/XIVDBApi');
 const Language = require('../language/Language');
+const jsonQuery = require('json-query');
 
 /**
  * Handle XIVDB Commands
@@ -154,44 +155,8 @@ class HandlerXIVDB {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
 
-                    var fieldValues = [];
                     for (let i in fields) {
-                        var nestedFields = fields[i].split("/");
-                        switch (nestedFields.length) {
-                            case 1:
-                                if (result[fields[i]] != undefined) {
-                                    fieldValues.push(result[fields[i]]);
-                                }
-                                else {
-                                    fieldValues.push('n/a');
-                                }
-                                break;
-                            case 2:
-                                if (result[nestedFields[0]][nestedFields[1]] != undefined) {
-                                    fieldValues.push(result[nestedFields[0]][nestedFields[1]]);
-                                }
-                                else {
-                                    fieldValues.push('n/a');
-                                }
-                                break;
-                            case 3: //maps array will be zero...hack for now                                
-                                if (result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]] != undefined) {
-                                    fieldValues.push(result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]]);
-                                }
-                                else {
-                                    fieldValues.push('n/a');
-                                }
-                                break;
-                            case 5: //for fates...hack for now
-                                var val = result[nestedFields[0]][nestedFields[1]][0][nestedFields[2]][nestedFields[3]][nestedFields[4]];
-                                if (val != undefined) {
-                                    fieldValues.push(val);
-                                }
-                                else {
-                                    fieldValues.push('n/a');
-                                }
-                                break;
-                        }
+                        fieldValues.push(jsonQuery(fields[i], { data: data })).value;
                     }
 
                     response.push(Language.say(responseTemplate, fieldValues));
