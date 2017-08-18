@@ -58,7 +58,7 @@ class XIVDBApi
         });
 
         if (type.trim() != '') {
-            queryString = queryString + "one=" + type;
+            queryString = queryString + "&one=" + type;
         }
 
          console.log(queryString);
