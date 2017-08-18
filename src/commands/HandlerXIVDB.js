@@ -32,19 +32,18 @@ class HandlerXIVDB {
                     category,
                 ]));
 
-                // print out each result
-                // This is very spammy so disabled for now.
-                /*
-                for(let i in result.results) {
-                    let content = result.results[i];
-                    response.push(Language.say('XIVDB_RESULTS_CONTENT', [
-                        i,
-                        content.id,
-                        content.name,
-                        content.url_xivdb
-                    ]));
+                // print out up to top 3 results
+                for (let i in result.results) {
+                    if (i < 4) {
+                        let content = result.results[i];
+                        response.push(Language.say('XIVDB_RESULTS_CONTENT', [
+                            i,
+                            content.id,
+                            content.name,
+                            content.url_xivdb
+                        ]));
+                    }
                 }
-                */
             }
 
             callback(response.join('\n'));
