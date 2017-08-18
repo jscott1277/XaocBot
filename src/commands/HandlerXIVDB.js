@@ -158,7 +158,7 @@ class HandlerXIVDB {
                     var fieldValues = [];
                     for (let i in fields) {
                         console.log(fields[i]);
-                        fieldValues.push(jsonQuery(fields[i], { data: result })).value;
+                        fieldValues.push(jsonQuery(fields[i], { data: result }).value);
                     }
 
                     response.push(Language.say(responseTemplate, fieldValues));
