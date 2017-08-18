@@ -140,10 +140,12 @@ class Handler
                 });
                 break;
 
-            // general search
-            return HandlerXIVDB.search(text.slice(2).join(' '), response => {
-                this.respond(message, response);
-            });
+            default:
+                // general search
+                return HandlerXIVDB.search(text.slice(2).join(' '), response => {
+                    this.respond(message, response);
+                });
+            break;
 
         }
     }
