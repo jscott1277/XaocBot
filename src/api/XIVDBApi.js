@@ -53,10 +53,14 @@ class XIVDBApi
      */
     search(string, type, callback)
     {
-        this.query(callback, '/search?' + query.stringify({
+        var queryString = query.stringify({
             string: string,
             one: type,
-        }));
+        });
+
+        console.log(queryString);
+
+        this.query(callback, '/search?' + queryString);
     }
 
     /**
