@@ -144,25 +144,25 @@ class Handler
                 // general search
                 switch (text.slice(2))
                 {
-                    case COMMAND_XIVDB_SEARCH_ITEMS:
-                    case COMMAND_XIVDB_SEARCH_QUESTS:
-                    case COMMAND_XIVDB_SEARCH_FATES:
-                    case COMMAND_XIVDB_SEARCH_ENEMIES:
-                    case COMMAND_XIVDB_SEARCH_LEVES:
-                    case COMMAND_XIVDB_SEARCH_ACHIEVEMENTS:
-                    case COMMAND_XIVDB_SEARCH_ACTIONS:
-                    case COMMAND_XIVDB_SEARCH_EMOTES:
-                    case COMMAND_XIVDB_SEARCH_GATHERINGS:
-                    case COMMAND_XIVDB_SEARCH_INSTANCES:
-                    case COMMAND_XIVDB_SEARCH_MINIONS: 
-                    case COMMAND_XIVDB_SEARCH_MOUNTS:
-                    case COMMAND_XIVDB_SEARCH_NPCS: 
-                    case COMMAND_XIVDB_SEARCH_PLACENAMES: 
-                    case COMMAND_XIVDB_SEARCH_RECIPES: 
-                    case COMMAND_XIVDB_SEARCH_SHOPS: 
-                    case COMMAND_XIVDB_SEARCH_STATUSES: 
-                    case COMMAND_XIVDB_SEARCH_TITLES:
-                    case COMMAND_XIVDB_SEARCH_WEATHERS:
+                    case Commands.COMMAND_XIVDB_SEARCH_ITEMS:
+                    case Commands.COMMAND_XIVDB_SEARCH_QUESTS:
+                    case Commands.COMMAND_XIVDB_SEARCH_FATES:
+                    case Commands.COMMAND_XIVDB_SEARCH_ENEMIES:
+                    case Commands.COMMAND_XIVDB_SEARCH_LEVES:
+                    case Commands.COMMAND_XIVDB_SEARCH_ACHIEVEMENTS:
+                    case Commands.COMMAND_XIVDB_SEARCH_ACTIONS:
+                    case Commands.COMMAND_XIVDB_SEARCH_EMOTES:
+                    case Commands.COMMAND_XIVDB_SEARCH_GATHERINGS:
+                    case Commands.COMMAND_XIVDB_SEARCH_INSTANCES:
+                    case Commands.COMMAND_XIVDB_SEARCH_MINIONS:
+                    case Commands.COMMAND_XIVDB_SEARCH_MOUNTS:
+                    case Commands.COMMAND_XIVDB_SEARCH_NPCS:
+                    case Commands.COMMAND_XIVDB_SEARCH_PLACENAMES:
+                    case Commands.COMMAND_XIVDB_SEARCH_RECIPES:
+                    case Commands.COMMAND_XIVDB_SEARCH_SHOPS:
+                    case Commands.COMMAND_XIVDB_SEARCH_STATUSES:
+                    case Commands.COMMAND_XIVDB_SEARCH_TITLES:
+                    case Commands.COMMAND_XIVDB_SEARCH_WEATHERS:
                         return HandlerXIVDB.search(text.slice(3).join(' '), text.slice(2), response => {
                             this.respond(message, response);
                         });
