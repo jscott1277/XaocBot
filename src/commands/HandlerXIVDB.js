@@ -155,6 +155,7 @@ class HandlerXIVDB {
                 // get object
                 XIVDBApi.getObject(id, type, result => {
 
+                    var fieldValues = [];
                     for (let i in fields) {
                         fieldValues.push(jsonQuery(fields[i], { data: data })).value;
                     }
