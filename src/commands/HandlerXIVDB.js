@@ -32,6 +32,8 @@ class HandlerXIVDB {
                     }
                 }
 
+                callback(response.join('\n'));
+
             } else {
 
                 // loop through responses
