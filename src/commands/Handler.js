@@ -142,7 +142,6 @@ class Handler
 
             default:
                 // general search
-                console.log(text.slice(2));
                 switch (text.slice(2))
                 {
                     case Commands.COMMAND_XIVDB_SEARCH_ITEMS:
@@ -164,8 +163,6 @@ class Handler
                     case Commands.COMMAND_XIVDB_SEARCH_STATUSES:
                     case Commands.COMMAND_XIVDB_SEARCH_TITLES:
                     case Commands.COMMAND_XIVDB_SEARCH_WEATHERS:
-                        console.log(text.slice(3).join(' '));
-                        console.log(text.slice(2));
                         return HandlerXIVDB.search(text.slice(3).join(' '), text.slice(2), response => {
                             this.respond(message, response);
                         });
