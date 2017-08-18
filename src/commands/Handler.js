@@ -142,6 +142,7 @@ class Handler
 
             default:
                 // general search
+                console.log(text.slice(2));
                 switch (text.slice(2))
                 {
                     case Commands.COMMAND_XIVDB_SEARCH_ITEMS:
