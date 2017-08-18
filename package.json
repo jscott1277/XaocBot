@@ -6,8 +6,6 @@
     "moment": "^2.17.1",
     "query-string": "^4.2.3",
     "sprintf-js": "^1.0.3",
-    "node-opus": "^0.2.1",
-    "opusscript": "^0.0.1",
     "json-query": "^2.2.2"
   },
   "scripts": {
