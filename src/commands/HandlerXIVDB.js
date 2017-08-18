@@ -23,7 +23,6 @@ class HandlerXIVDB {
 
                 // skip if no results
                 if (result.total == 0) {
-                    response.push(Language.say('XIVDB_RESULTS_CONTENT_FOUND_NONE', [ string ]));
                     continue;
                 }
 
