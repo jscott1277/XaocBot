@@ -22,7 +22,7 @@ class English
             // XIVDB
             //
             XIVDB_RESULTS_COUNT: '\n**Found %s results for %s**',
-            XIVDB_RESULTS_CONTENT: '%s: [%s] %s - %s',
+            XIVDB_RESULTS_CONTENT: '%s: %s - %s',
             XIVDB_RESULTS_CONTENT_FOUND_NONE: 'I could not find %s',
             XIVDB_RESULTS_CONTENT_FOUND_TOTAL: 'I found %s results',
             XIVDB_RESULTS_CONTENT_FOUND_ITEM: '%s (%s)\nDescription: %s\nLevel: %s, Item Level: %s\nLink: %s',

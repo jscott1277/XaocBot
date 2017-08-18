@@ -38,7 +38,6 @@ class HandlerXIVDB {
                         let content = result.results[i];
                         response.push(Language.say('XIVDB_RESULTS_CONTENT', [
                             +i + +1,
-                            content.id,
                             content.name,
                             content.url_xivdb
                         ]));
