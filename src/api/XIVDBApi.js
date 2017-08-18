@@ -51,9 +51,13 @@ class XIVDBApi
      * @param string
      * @param callback
      */
-    search(string, type, callback)
+    search(keyword, type, callback)
     {
-        var queryString = "string=" + string + "&" + "one=" + type;
+        var queryString = query.stringify({
+            one: type,
+            string: keyword,
+        });
+
          console.log(queryString);
 
         this.query(callback, '/search?' + queryString);
