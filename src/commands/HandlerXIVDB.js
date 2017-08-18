@@ -21,13 +21,15 @@ class HandlerXIVDB {
             if (type.trim() != '') {
 
                 // print out up to top 10 results
-                for (let i in results[0]) {
+                let typeResults = jsonQuery(type + '[*]', { results });
+                console.log(typeResults);
+                for (let i in typeResults) {
                     if (i < 10) {
-                        let result = results[0][i];
+                        let typeResult = typeResults[i];
                         response.push(Language.say('XIVDB_RESULTS_CONTENT', [
                             +i + +1,
-                            result.name,
-                            result.url_xivdb
+                            typeResult.name,
+                            typeResult.url_xivdb
                         ]));
                     }
                 }
