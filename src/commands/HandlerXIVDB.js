@@ -23,7 +23,7 @@ class HandlerXIVDB {
                 // print out up to top 10 results
                 for (let i in results[type].results) {
                     if (i < 10) {
-                        let typeResult = typeResults[i];
+                        let typeResult = results[type].results[i];
                         response.push(Language.say('XIVDB_RESULTS_CONTENT', [
                             +i + +1,
                             typeResult.name,
