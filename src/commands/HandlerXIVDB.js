@@ -21,8 +21,7 @@ class HandlerXIVDB {
             if (type.trim() != '') {
 
                 // print out up to top 10 results
-                let typeResults = jsonQuery(type + '.results', { results });
-                for (let i in typeResults) {
+                for (let i in results[type].results) {
                     if (i < 10) {
                         let typeResult = typeResults[i];
                         response.push(Language.say('XIVDB_RESULTS_CONTENT', [

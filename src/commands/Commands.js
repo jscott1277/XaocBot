@@ -3,7 +3,7 @@ module.exports = Object.freeze({
     GLOBAL_HI: 'hi mognet',
 
     COMMAND_KEY: '!mog',
-    COMMAND_XIVDB_SEARCH: 'find',
+    COMMAND_XIVDB_SEARCH: 'search',
     COMMAND_XIVDB_GET_ITEM: 'item',
     COMMAND_XIVDB_GET_QUEST: 'quest',
     COMMAND_XIVDB_GET_FATE: 'fate',
