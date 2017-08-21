@@ -35,6 +35,8 @@ class English
 
             XIVDB_RESULTS_ENEMY_FOUND_ITEM: '%s found in %s. Details: %s. Is Fate? %s:  %s',
 
+            XIVDB_RESULTS_INSTANCE_FOUND_ITEM: 'Found %s (Level: %s, Sync: %s, Size: %s):  %s',
+
             //
             // Lodestone
             //

@@ -121,6 +121,12 @@ class Handler
                     this.respond(message, response);
                 });
                 break;
+            case Commands.COMMAND_XIVDB_GET_INSTANCE:
+                var fields = ['name', 'level', 'level_sync', 'alliance', 'url_xivdb'];
+                return HandlerXIVDB.getObject(text.slice(2).join(' '), type, 'XIVDB_RESULTS_INSTANCE_FOUND_ITEM', fields, response => {
+                    this.respond(message, response);
+                });
+                break;
             case Commands.COMMAND_XIVDB_GET_SHOP:
             case Commands.COMMAND_XIVDB_GET_STATUS:
             case Commands.COMMAND_XIVDB_GET_TITLE:
@@ -128,7 +134,6 @@ class Handler
             case Commands.COMMAND_XIVDB_GET_PLACENAME:
             case Commands.COMMAND_XIVDB_GET_MOUNT:
             case Commands.COMMAND_XIVDB_GET_MINION:
-            case Commands.COMMAND_XIVDB_GET_INSTANCE:
             case Commands.COMMAND_XIVDB_GET_EMOTE:
             case Commands.COMMAND_XIVDB_GET_ACTION:
             case Commands.COMMAND_XIVDB_GET_ACHIEVEMENT:
